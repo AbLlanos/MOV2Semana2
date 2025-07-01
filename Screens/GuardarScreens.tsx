@@ -21,9 +21,10 @@ export default function GuardarScreens() {
         })
         limpiar();
         Alert.alert("Elementos guardados", "Se ha registrado con éxito");
-
-
     }
+
+
+
 
 
     function limpiar() {

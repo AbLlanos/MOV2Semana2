@@ -13,9 +13,7 @@ function MyDrawer() {
             <Drawer.Screen name="Guardar" component={GuardarScreens} />
             <Drawer.Screen name="Editar" component={EditarScreens} />
             <Drawer.Screen name="Leer" component={LeerScreens} />
-
             <Drawer.Screen name="Eliminar" component={EliminarScreens} />
-
         </Drawer.Navigator>
     )
 }

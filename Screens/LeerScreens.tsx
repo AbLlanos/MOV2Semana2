@@ -11,6 +11,7 @@ export default function LeerScreens() {
   const [cedula, setcedula] = useState("")
 
 
+  //Traer varios datos
 
   function leer() {
     const starCountRef = ref(db, 'usuarios/');
@@ -26,6 +27,19 @@ export default function LeerScreens() {
     });
   }
 
+  //Funcion para traer solo un dato
+
+  function leer2() {
+    const starCountRef = ref(db, 'usuarios/' + cedula);
+    onValue(starCountRef, (snapshot) => {
+      const data = snapshot.val();
+        console.log(data);
+        Alert.alert("Nombre",data.user)
+      });
+
+  }
+
+
   useEffect(() => {
     leer()
   }, [])
@@ -37,20 +51,22 @@ export default function LeerScreens() {
     user: string;
   };
 
-  useEffect(() => {
-    
-  
-
-  }, [])
-  
-
-
 
   return (
     <View>
       <Text>LeerScreens</Text>
 
-      <Button title='Revisar'></Button>
+      <View>
+        <TextInput
+        onChangeText={(texto)=>setcedula(texto)}
+        placeholder='cedula'
+        >
+
+        </TextInput>
+
+              <Button title='Revisar' onPress={()=>leer2()}></Button>
+      </View>
+
 
       <FlatList
         data={datos}
